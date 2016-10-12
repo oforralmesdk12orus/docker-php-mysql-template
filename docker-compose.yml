@@ -7,3 +7,19 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mysql:5.7.15
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: php
+      MYSQL_DATABASE: php
+      MYSQL_USER: php
+      MYSQL_PASSWORD: php

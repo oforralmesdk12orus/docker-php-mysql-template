@@ -1,3 +1,4 @@
-FROM php:7.0.11
+FROM ubuntu:16.04
 RUN mkdir /code
 WORKDIR /code
+RUN apt-get update && apt-get install --yes php7.0 php7.0-mysql
